@@ -4,5 +4,7 @@ To run the scripts, run:
 ```bash
 sh run_plots.sh
 ```
-
-
+To test the code related to the differential equations, run:
+```bash
+cd src &&  python -m unittest test_general_model.py
+```
