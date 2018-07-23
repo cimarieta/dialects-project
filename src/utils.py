@@ -2,11 +2,6 @@ import numpy as np
 import pandas as pd
 
 
-#def parse_line(line):
-#    if line.startswith('-'):
-#        numbers = line.strip('- ').split()
-#
-
 def read_params(params_file='params.txt', int_params=[]):
     # read parameters from file
     with open(params_file, "r") as f:

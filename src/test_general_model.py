@@ -107,18 +107,18 @@ class TestUnanimityPrivateDynamicsN3(TestDialectDynamicsN3):
         self.check_all()
 
 
-class TestSanityDialectDynamics(unittest.TestCase):
-    """
-        Sanity check
-    """
-    def setUp(self):
-        lpub = random.random()
-        setup = BasicSetup(conformity_mode='peer', lpub=lpub, n=random.randint(2, 11))
-        simulator, init_vec = setup.simulator, setup.init_vec
-        self.dz_dt = simulator.public_private_dz(init_vec)
-
-    def test_sum_diffs(self):
-        self.assertAlmostEqual(sum(self.dz_dt), 0)
+#class TestSanityDialectDynamics(unittest.TestCase):
+#    """
+#        Sanity check (only works when using all the dimensions of dz/dt)
+#    """
+#    def setUp(self):
+#        lpub = random.random()
+#        setup = BasicSetup(conformity_mode='peer', lpub=lpub, n=random.randint(2, 11))
+#        simulator, init_vec = setup.simulator, setup.init_vec
+#        self.dz_dt = simulator.public_private_dz(init_vec)
+#
+#    def test_sum_diffs(self):
+#        self.assertAlmostEqual(sum(self.dz_dt), 0)
 
 
 class TestIntegrationPeerDynamics(unittest.TestCase):

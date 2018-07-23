@@ -8,23 +8,6 @@ vec[n] = allA
 """
 import numpy as np
 from scipy.integrate import odeint
-import pylab
-
-
-params = {
-    'text.usetex': True,
-    'font.family': 'serif',
-    'font.serif': 'cm',
-    'font.size': 24,
-    'text.latex.unicode': True,
-    'lines.linewidth': 3.,
-}
-
-pylab.rcParams.update(params)
-params2latex = {'pi_A': r'$\pi_A$', 'pi_B': r'$\pi_B$',
-                'xi': r'$\xi$', 'lpub': r'$\lambda_{pub}$',
-                'lpriv': r'$\lambda_{priv}$', 'pa': r'$\pi_a$',
-                'pb': r'$\pi_b$'}
 
 
 class DialectDynamicsSimulator(object):
@@ -44,7 +27,7 @@ class DialectDynamicsSimulator(object):
             curr_vec[-1] = 1-np.sum(vec)
         else:
             curr_vec = np.copy(vec)
-        diff_vec = np.empty(n)# + 1)
+        diff_vec = np.empty(n)  # + 1)
         diff_vec[0] = -term_A(0)*curr_vec[0] + term_B(1)*curr_vec[1]
         for i in range(1, n):
             diff_vec[i] = term_A(i-1)*curr_vec[i-1] - (term_A(i) + term_B(i))*curr_vec[i] + \
